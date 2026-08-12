@@ -5,7 +5,7 @@ function Navbar() {
   return (
     <nav>
       <div className="nav-container">
-        <Link to="/" className="logo">Manikanta Teja</Link>
+        <Link to="/" className="logo">Welcome</Link>
         <ul className="nav-links">
           <li><Link to="/">Home</Link></li>
           <li><Link to="/about">About</Link></li>

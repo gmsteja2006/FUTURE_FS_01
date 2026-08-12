@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import About from './components/About';
@@ -13,8 +13,10 @@ import './App.css';
 function ScrollToTop() {
   const { pathname } = useLocation();
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0 });
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
   }, [pathname]);
 
   return null;
@@ -25,6 +27,12 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className="App">
+        <div className="background-grid"></div>
+        <div className="background-orbs">
+          <span className="orb orb-one"></span>
+          <span className="orb orb-two"></span>
+          <span className="orb orb-three"></span>
+        </div>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

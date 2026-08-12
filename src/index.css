@@ -1,83 +1,86 @@
 ﻿:root {
-  --primary-color: #0f172a;
-  --secondary-color: #111827;
-  --accent-color: #00b7ff;
-  --accent-dark: #0d6efd;
-  --text-light: #eef2ff;
-  --text-dark: #0f172a;
-  --bg-light: #f8fafc;
-  --border-color: rgba(15, 23, 42, 0.08);
-  --font-heading: 'Playfair Display', serif;
-  --font-body: 'Inter', sans-serif;
-  --font-code: 'Poppins', sans-serif;
-}
-
-body {
-  margin: 0;
-  font-family: var(--font-body);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: var(--text-dark);
-  line-height: 1.75;
-  background: radial-gradient(circle at top left, rgba(0,183,255,0.16), transparent 24%),
-    radial-gradient(circle at bottom right, rgba(13,110,253,0.12), transparent 18%),
-    linear-gradient(180deg, #f8fafc 0%, #e2e8f0 100%);
-}
-
-html {
-  scroll-behavior: smooth;
+  --bg-1: #040714;
+  --bg-2: #071527;
+  --bg-3: #081423;
+  --surface: rgba(18, 32, 57, 0.88);
+  --surface-strong: rgba(12, 26, 47, 0.96);
+  --text-light: #e8f7ff;
+  --text-muted: #8aaccc;
+  --accent: #0ff7ff;
+  --accent-strong: #48c6ff;
+  --accent-soft: #74d6ff;
+  --border: rgba(80, 255, 255, 0.15);
+  --shadow: 0 30px 80px rgba(1, 144, 255, 0.12);
+  --font-heading: "Inter", "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Segoe UI", system-ui, sans-serif;
 }
 
 * {
   box-sizing: border-box;
 }
 
-.section,
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--text-light);
+  background: radial-gradient(circle at top left, rgba(0, 214, 255, 0.16), transparent 20%),
+    radial-gradient(circle at 30% 10%, rgba(84, 112, 255, 0.12), transparent 18%),
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 40%, var(--bg-3) 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(0, 255, 255, 0.22);
+  color: var(--text-light);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+a {
+  font-family: inherit;
+}
+
 .page {
   width: 100%;
-  padding: 6.5rem 1rem 3rem;
-}
-
-.page {
   min-height: calc(100vh - 90px);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-}
-
-.page-header,
-.page-header h1 {
-  scroll-margin-top: 7rem;
-}
-
-.section:nth-child(even) {
-  background: var(--bg-light);
+  padding: 3rem 1rem 4rem;
 }
 
 .container {
-  max-width: 1180px;
+  max-width: 1200px;
   margin: 0 auto;
   width: 100%;
 }
 
-h1 {
-  font-family: var(--font-heading);
-  font-size: clamp(2.8rem, 4vw, 4.2rem);
-  font-weight: 800;
-  margin-bottom: 1rem;
-  line-height: 1.02;
-  background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: slideInDown 0.8s ease-out;
+h1,
+h2,
+h3,
+p,
+span,
+li,
+a,
+button {
+  transition: all 0.25s ease;
 }
 
-@keyframes slideInDown {
+@keyframes fadeInDown {
   from {
     opacity: 0;
-    transform: translateY(-50px);
+    transform: translateY(-28px);
   }
   to {
     opacity: 1;
@@ -85,139 +88,45 @@ h1 {
   }
 }
 
-h2 {
-  font-family: var(--font-heading);
-  font-size: clamp(2.2rem, 3vw, 3rem);
-  font-weight: 800;
-  margin-bottom: 1.8rem;
-  color: var(--primary-color);
-  position: relative;
-  padding-bottom: 1rem;
-  animation: fadeInScale 0.6s ease-out;
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
+@keyframes pulseGlow {
+  0%, 100% {
     transform: scale(1);
-  }
-}
-
-h2::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) scaleX(0);
-  width: 60px;
-  height: 4px;
-  background: linear-gradient(90deg, var(--accent-color), var(--accent-dark));
-  border-radius: 2px;
-  animation: expandWidth 0.8s ease-out 0.3s forwards;
-}
-
-@keyframes expandWidth {
-  from {
-    transform: translateX(-50%) scaleX(0);
-  }
-  to {
-    transform: translateX(-50%) scaleX(1);
-  }
-}
-
-h3 {
-  font-family: var(--font-heading);
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: var(--primary-color);
-  margin-bottom: 1rem;
-}
-
-p {
-  margin-bottom: 1rem;
-  color: #475569;
-  font-size: 1.05rem;
-}
-
-a {
-  color: var(--accent-color);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: var(--accent-dark);
-}
-
-button,
-.button,
-.nav-button {
-  border: none;
-  border-radius: 12px;
-  padding: 0.95rem 1.8rem;
-  color: white;
-  background: linear-gradient(135deg, var(--accent-color), var(--accent-dark));
-  box-shadow: 0 18px 45px rgba(0, 183, 255, 0.18);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-button:hover,
-.button:hover,
-.nav-button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 22px 55px rgba(0, 183, 255, 0.25);
-}
-
-input,
-textarea {
-  font-family: var(--font-body);
-  border-radius: 14px;
-  border: 1px solid var(--border-color);
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--text-dark);
-  padding: 1rem 1.1rem;
-  width: 100%;
-  box-shadow: inset 0 1px 4px rgba(15, 23, 42, 0.05);
-}
-
-input:focus,
-textarea:focus {
-  outline: none;
-  border-color: rgba(0, 183, 255, 0.45);
-  box-shadow: 0 0 0 4px rgba(0, 183, 255, 0.08);
-}
-
-footer {
-  background: linear-gradient(135deg, #0f172a, #111827);
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
+    opacity: 0.9;
   }
   50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes glow {
-  0%, 100% {
-    text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-  }
-  50% {
-    text-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
+    transform: scale(1.05);
     opacity: 1;
+  }
+}
+
+@keyframes drift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(8px, -12px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    opacity: 0.4;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes neonPulse {
+  0%, 100% {
+    box-shadow: 0 0 18px rgba(0, 255, 255, 0.18), 0 0 40px rgba(0, 145, 255, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.26), 0 0 55px rgba(0, 145, 255, 0.16);
   }
 }

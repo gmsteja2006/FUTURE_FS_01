@@ -1,11 +1,12 @@
-nav {
+﻿nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  background: rgba(2, 10, 28, 0.94);
+  border-bottom: 1px solid rgba(0, 255, 255, 0.12);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(22px);
   z-index: 100;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  backdrop-filter: blur(10px);
 }
 
 .nav-container {
@@ -14,24 +15,24 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.2rem 2rem;
+  padding: 1rem 2rem;
   width: 100%;
 }
 
 .logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, var(--accent-color), #00a8cc);
+  font-size: 1.9rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: 1px;
+  letter-spacing: 0.08em;
 }
 
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
   margin: 0;
   padding: 0;
 }
@@ -39,54 +40,44 @@ nav {
 .nav-links a {
   text-decoration: none;
   color: var(--text-light);
-  font-weight: 500;
-  font-size: 1rem;
+  font-weight: 600;
+  font-size: 0.98rem;
   position: relative;
-  padding-bottom: 0.5rem;
-  font-family: var(--font-body);
-  animation: fadeIn 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  padding: 0.5rem 0;
+  transition: color 0.25s ease;
 }
 
 .nav-links a::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -3px;
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, var(--accent-color), var(--accent-dark));
+  background: linear-gradient(90deg, var(--accent), var(--accent-strong));
   transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
 }
 
 .nav-links a:hover::after {
   width: 100%;
 }
 
-.nav-links a:hover {
-  color: var(--accent-color);
-}
-
 @media (max-width: 768px) {
   .nav-container {
     padding: 1rem;
   }
-  
+
   .nav-links {
-    gap: 1.5rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: flex-end;
   }
-  
+
   .logo {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 }
