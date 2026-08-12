@@ -11,7 +11,7 @@ function Resume() {
         <section className="resume-card">
           <div className="section-title">Professional Summary</div>
           <p>
-            Second-year B.Tech student focused on Artificial Intelligence and Machine Learning. Skilled in Python, algorithm design, competitive programming, and data-driven project development.
+            Third-year B.Tech student focused on Artificial Intelligence and Machine Learning. Skilled in Python, algorithm design, competitive programming, and data-driven project development.
           </p>
         </section>
 
@@ -20,7 +20,7 @@ function Resume() {
           <div className="item">
             <h3>B.Tech in AI & Machine Learning</h3>
             <span>Aditya University · 2024 - 2028</span>
-            <p>Current 2nd year | CGPA 7.30 | Relevant coursework: Data Structures, AI, Machine Learning, Python, Big Data.</p>
+            <p>Current 3rd year | CGPA 7.50 | Relevant coursework: Data Structures, AI, Machine Learning, Python, Big Data.</p>
           </div>
         </section>
 
